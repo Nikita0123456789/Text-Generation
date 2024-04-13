@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Description Generator</title>
+</head>
+<body>
+    <h1>Image Description Generator</h1>
+    <label for="imageUrl">Enter image URL:</label><br>
+    <input type="text" id="imageUrl" name="imageUrl" required><br><br>
+    <button onclick="generateDescription()">Generate Description</button>
+    <p id="descriptionResult"></p>
+
+    <script>
+        async function generateDescription() {
+            const imageUrl = document.getElementById('imageUrl').value;
+
+            try {
+                // Fetch image description from an AI model (dummy function for demonstration)
+                const description = await generateDescriptionFromModel(imageUrl);
+                document.getElementById('descriptionResult').innerText = description;
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('descriptionResult').innerText = 'Failed to generate description.';
+            }
+        }
+
+        // Dummy function to generate image description (replace with actual AI model integration)
+        function generateDescriptionFromModel(imageUrl) {
+            // In a real application, you would use an AI model to generate the description
+            // For simplicity, let's just return a static description for demonstration
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve('A cat sitting on a table');
+                }, 1000); // Simulate delay for AI model inference
+            });
+        }
+    </script>
+</body>
+</html>
